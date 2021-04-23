@@ -1,2 +1,2 @@
 # SchedulePlanner
-![alt text](https://github.com/fajarrw/SchedulePlanner/blob/image.jpg?raw=true)
+![alt text](https://github.com/fajarrw/SchedulePlanner/blob/main/image.jpg?raw=true)
