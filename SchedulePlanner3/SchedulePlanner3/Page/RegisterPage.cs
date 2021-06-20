@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using SchedulePlanner3.Repository;
+using SchedulePlanner3.Model;
 
 namespace SchedulePlanner3
 {
@@ -32,7 +34,9 @@ namespace SchedulePlanner3
         public void OnCreateMember(object sender, EventArgs e)
         {
             //simpan masukan ke database
-            //Display.Alert: Registration Succeed
+            Member newMember = new Member{ name = etyName.ToString(), email = etyEmail.ToString(), password = etyPassword.ToString() };
+            int rowsAdded = App.memberRepository.AddMember(newMember);
+            App.Current.MainPage.DisplayAlert("Succes", "New" + rowsAdded + "member(s) successfully added", "OK");
             Navigation.PopModalAsync();
             Navigation.PopModalAsync();
         }

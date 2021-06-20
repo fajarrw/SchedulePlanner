@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using SchedulePlanner3.Model;
 
 namespace SchedulePlanner3
 {
@@ -32,10 +33,15 @@ namespace SchedulePlanner3
 
         public void OnLogin(object sender,EventArgs e)
         {
-            //Cek di database
+            bool isAuthentic = false;
+            isAuthentic = App.memberRepository.Authenticate(etyEmail.ToString(), etyPassword.ToString());
+
             //if true:
-            Navigation.PopModalAsync();
+            if (isAuthentic==false)
+                Navigation.PopModalAsync();
             //else Display.Alert, ulangi masukan lagi
+            else
+                App.Current.MainPage.DisplayAlert("Login Failed", "Please try again", "OK");
         }
 
         public void OnRegister(object sender, EventArgs e)

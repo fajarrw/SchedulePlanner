@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using SchedulePlanner3.Model;
 
 namespace SchedulePlanner3
 {
@@ -14,8 +15,8 @@ namespace SchedulePlanner3
         {
             StackLayout layout = new StackLayout();
 
-            layout.Children.Add(new Label { Text = "Nama: " + $"{Model.Member.getName()}" }); 
-            layout.Children.Add(new Label { Text = "Email: " + $"{Model.Member.getEmail()}" }); 
+            layout.Children.Add(new Label { Text = "Nama: " + $"{Member.getName()}" }); 
+            layout.Children.Add(new Label { Text = "Email: " + $"{Member.getEmail()}" }); 
             layout.Children.Add(btnUpdateMember = new Button { Text = "Edit Profile" });
             layout.Children.Add(btnDeleteMember = new Button { Text = "Delete Account" });
             layout.Children.Add(btnLogout = new Button { Text = "Logout" });

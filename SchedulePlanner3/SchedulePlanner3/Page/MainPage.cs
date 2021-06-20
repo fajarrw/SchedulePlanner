@@ -10,6 +10,7 @@ namespace SchedulePlanner3
         Button btnMoveToAddEvent;
         Button btnMoveToStatistics;
         Button btnMoveToProfile;
+        Button btnMoveToEditEvent;
         public MainPage()
         {
             //jika user belum masuk
@@ -18,18 +19,22 @@ namespace SchedulePlanner3
 
             //UI 
             StackLayout layout = new StackLayout();
+            ListView listview = new ListView();
 
             layout.Children.Add(new Label { Text = "This is MainPage" });
             layout.Children.Add(btnMoveToAddEvent = new Button { Text = "Add Event" });
+            layout.Children.Add(btnMoveToEditEvent = new Button { Text = "Edit Event" });
             layout.Children.Add(btnMoveToStatistics = new Button { Text = "Statistics" });
             layout.Children.Add(btnMoveToProfile = new Button { Text = "Profile" });
+            layout.Children.Add(listview);
 
             //button.clicked
             btnMoveToAddEvent.Clicked += OnMoveToAddEvent;
+            btnMoveToEditEvent.Clicked += OnMoveToEditEvent;
             btnMoveToStatistics.Clicked += OnMoveToStatistics;
             btnMoveToProfile.Clicked += OnMoveToProfile;
 
-            //this.Content???
+            //this.Content
             this.Content = layout;
         }
 
@@ -37,7 +42,10 @@ namespace SchedulePlanner3
         {
             Navigation.PushAsync(new AddEventPage());
         }
-
+        public void OnMoveToEditEvent(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EditEventPage());
+        }
         public void OnMoveToStatistics(object sender, EventArgs e)
         {
             Navigation.PushAsync(new StatisticsPage());

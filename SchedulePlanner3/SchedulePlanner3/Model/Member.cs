@@ -1,20 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace SchedulePlanner3.Model
 {
+    [Table("members")]
     public class Member
     {
-        public string name;
-        public string email;
-        public string password;
-        public Member(string name, string email, string password)
-        {
-            this.name = name;
-            this.email = email;
-            this.password = password;
-        }
+        [PrimaryKey, AutoIncrement]
+        public int idMember { get; set; }
+        public string name { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        //public Member(string name, string email, string password)
+        //{
+        //    this.name = name;
+        //    this.email = email;
+        //    this.password = password;
+        //}
+        
         public static string getName()
         //static karena kalau tidak static tidak bisa dipakai di kelas UpdateMemberPage
         {
